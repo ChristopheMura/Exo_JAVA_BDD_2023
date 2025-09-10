@@ -58,8 +58,8 @@
 <p>*****</br>****</br>***</br>**</br>*</p>
 
 <p>
-    <%for (int i=cpt; i>=0; i--) {%>
-        <%for (int j=i; j>=0; j--) {%>
+    <%for (int i=cpt; i>0; i--) {%>
+        <%for (int j=i; j>0; j--) {%>
             <%="*"%>
         <%}%>
         </br>
