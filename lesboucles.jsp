@@ -75,11 +75,12 @@
 <p>
     <%for (int i=0; i<cpt; i++) {%>
         <%for (int j=i; j<cpt; j++) {%>
-            </br>
+            
         <%}%>
         <%for (int j=0; j<i; j++) {%>
             <%="*"%>
         <%}%>
+        </br>
     <%}%>
 </p>
 
