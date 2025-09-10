@@ -92,7 +92,7 @@
 <p>
     <%for (int i=0; i<cpt; i++){%>
         <%for (int j=0; j<cpt-i-1; j++){%>
-            <%= "&nbsp;" %>
+            <%="&nbsp;"%>
         <%}%>
         <%for (int j=0; j<2*i+1; j++){%>
             <%="*"%>
@@ -106,6 +106,27 @@
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;***</br>&nbsp;&nbsp;****</br>*****</p>
 <p>*****</br>&nbsp;&nbsp;****</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</p>
+
+<p>
+    <%for (int i=0; i<cpt; i++) {%>
+        <%for (int j=0; j<cpt-i; j++){%>
+            <%="&nbsp;"%>
+        <%}%>
+        <%for (int j=0; j<i; j++){%>
+            <%="*"%>
+        <%}%>
+        <br/>
+    <%}%>
+    <%for (int i=cpt; i>0; i--){%>
+        <%for (int j=0; j<cpt-i; j++){%>
+            <%="&nbsp;"%>
+        <%}%>
+        <%for (int j=0; j<i; j++){%>
+            <%="*"%>
+        <%}%>
+        <br/>
+    <%}%>
+</p>
 
 <h2>Exercice 7 : La table de multiplication</h2>
 <p>Ecrire le code afin de créser une table de multiplication</p>
