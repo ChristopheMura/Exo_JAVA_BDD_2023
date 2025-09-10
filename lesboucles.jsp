@@ -138,6 +138,13 @@
 <p>5 x 4 = 20</p>
 <p>5 x 5 = 25</p>
 
+<p>
+    <%for (int i=1; i<=cpt; i++){%>
+        <%= cpt+"x"+i+"="+(cpt*i)%>
+        <br/>
+    <%}%>
+</p>
+
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>
 </body>
