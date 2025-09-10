@@ -74,10 +74,7 @@
 
 <p>
     <%for (int i=0; i<cpt; i++) {%>
-        <%for (int j=i; j<cpt; j++) {%>
-            
-        <%}%>
-        <%for (int j=0; j<i; j++) {%>
+        <%for (int j=cpt-i; j>0; j--) {%>
             <%="*"%>
         <%}%>
         </br>
