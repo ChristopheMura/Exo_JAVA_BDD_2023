@@ -29,6 +29,7 @@
 <p>Ecrire le code afin de produire un carré d'étoile</p>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
 <p>*****</br>*****</br>*****</br>*****</br>*****</p>
+
 <p>
     <%for (int i=0; i<cpt; i++) {%>
         <%for (int j=0; j<cpt; j++) {%>
@@ -70,6 +71,15 @@
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite</p>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;***</br>&nbsp;&nbsp;****</br>*****</p>
+
+<p>
+    <%for (int i=5; i>0; i--) {%>
+        <%for (int j=i-1; j<cpt; j++) {%>
+            <%="*"%>
+        <%}%>
+        </br>
+    <%}%>
+</p>
 
 <h2>Exercice 5 : Triangle isocele</h2>
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite</p>
