@@ -50,7 +50,10 @@ Oui C est compris entre A et B</p>
     <% int B = Integer.parseInt(val2); %>
     <% int C = Integer.parseInt(val3); %>
 
-    <% if (C >= A && C <= B) { %>
+    <% int min = Math.min(A, B);%>
+    <% int max = Math.max(A, B);%>
+
+    <% if (C >= min && C <= max) { %>
         <%= "C est compris entre A et B"%>
     <%} else {%>
         <%= "C n'est pas compris entre A et B"%>
