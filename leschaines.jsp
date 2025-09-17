@@ -69,6 +69,17 @@ L'hiver</br>
 sera</br>
 pluvieux</p>
 
+<p>
+    <% for (int i=0; i<chaine.length(); i++) {%>
+        <%char c = chaine.charAt(i); %>
+        <% if (c == ' ') {%>
+            </br>
+        <%} else {%>
+            <%= c%>
+        <%}%>
+    <%}%>
+</p>
+
 <h2>Exercice 4 : Afficher une lettre sur deux</h2>
 <p>Ecrire le programme pour afficher seulement une lettre sur deux de votre texte </br>
 Exemple : L'hiver sera pluvieux</br>
