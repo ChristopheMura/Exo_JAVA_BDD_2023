@@ -96,6 +96,12 @@ Lhvrsr lvex</p>
 Exemple : L'hiver sera pluvieux</br>
 xueivulp ares revih'l</p>
 
+<p>
+    <% for (int i=0; i<chaine.length(); i++) {%>
+        <%= chaine.charAt(chaine.length() - i)%>
+    <%}%>
+</p>
+
 <h2>Exercice 6 : Consonnes et voyelles</h2>
 <p>Ecrire le programme afin de compter les consonnes et les voyelles dans votre texte</p>
 
