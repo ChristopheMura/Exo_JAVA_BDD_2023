@@ -98,7 +98,7 @@ xueivulp ares revih'l</p>
 
 <p>
     <% for (int i=0; i<chaine.length(); i++) {%>
-        <%= chaine.charAt(chaine.length() - i)%>
+        <%= chaine.charAt(chaine.length() - 1 - i)%>
     <%}%>
 </p>
 
