@@ -52,8 +52,7 @@ Oui C est compris entre A et B</p>
 
     <% if (C >= A && C <= B) { %>
         <%= "C est compris entre A et B"%>
-    <%}%>
-    <% else {%>
+    <%} else {%>
         <%= "C n'est pas compris entre A et B"%>
     <%}%>
 
