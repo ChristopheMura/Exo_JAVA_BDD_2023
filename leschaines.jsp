@@ -58,7 +58,7 @@ r</p>
 
 <p>
     <% for (int i=0; i<chaine.length(); i++) {%>
-        <%= chaine.charAt(i);%> </br>
+        <%= chaine.charAt(i)%> </br>
     <%}%>
 </p>
 
