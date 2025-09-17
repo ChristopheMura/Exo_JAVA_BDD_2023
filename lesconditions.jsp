@@ -45,6 +45,18 @@ Oui C est compris entre A et B</p>
     <% String val1 = request.getParameter("valeur1"); %>
     <% String val2 = request.getParameter("valeur2"); %>
     <% String val3 = request.getParameter("valeur3"); %>
+
+    <% int A = Integer.parseInt(val1); %>
+    <% int B = Integer.parseInt(val2); %>
+    <% int C = Integer.parseInt(val3); %>
+
+    <% if (C >= A && C <= B) { %>
+        <%= C est compris entre A et B%>
+    <%}%>
+    <% else {%>
+        <%= C n'est pas compris entre A et B%>
+    <%}%>
+
 </p>
 
 <h2>Exercice 2 : Pair ou Impair ?</h2>
