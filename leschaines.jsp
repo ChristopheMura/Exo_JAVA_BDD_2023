@@ -112,6 +112,7 @@ xueivulp ares revih'l</p>
     <%String lesVoyelles = "aeiouAEIOU";%>
 
     <% for (int i=0; i<chaine.length(); i++) {%>
+        <%char c = chaine.charAt(i);%>
         <% if(Character.isLetter(c)) {%>
             <% if (lesVoyelles.indexOf(c) != -1%>
             voyelles++;
