@@ -42,9 +42,9 @@ C = 15</br>
 Oui C est compris entre A et B</p>
 
 <p>
-    <% String valeur1 = request.getParameter("valeur1"); %>
-    <% String valeur2 = request.getParameter("valeur2"); %>
-    <% String valeur3 = request.getParameter("valeur3"); %>
+    <% String val1 = request.getParameter("valeur1"); %>
+    <% String val2 = request.getParameter("valeur2"); %>
+    <% String val3 = request.getParameter("valeur3"); %>
 </p>
 
 <h2>Exercice 2 : Pair ou Impair ?</h2>
