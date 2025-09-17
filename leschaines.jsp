@@ -105,6 +105,25 @@ xueivulp ares revih'l</p>
 <h2>Exercice 6 : Consonnes et voyelles</h2>
 <p>Ecrire le programme afin de compter les consonnes et les voyelles dans votre texte</p>
 
+<p>
+    <%int consonnes = 0;%>
+    <%int voyelles = 0;%>
+
+    <%String lesVoyelles = "aeiouAEIOU";%>
+
+    <% for (int i=0; i<chaine.length(); i++) {%>
+        <% if(Character.isLetter(c)) {%>
+            <% if (lesVoyelles.indexOf(c) != -1%>
+            voyelles++;
+        <%} else {%>
+            consonnes++;
+        <%}%>
+    <%}%>
+    <%= "Texte analyse : " + chaine%> </br>
+    <%= "Nombre de voyelles : " + voyelles %> </br>
+    <%= "Nombre de consonnes : " + consonnes% > </br>
+</p>
+
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>
 </body>
