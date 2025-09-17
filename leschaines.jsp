@@ -120,9 +120,9 @@ xueivulp ares revih'l</p>
             consonnes++;
         <%}%>
     <%}%>
-    <%= "Texte analyse : " + chaine%> </br>
-    <%= "Nombre de voyelles : " + voyelles %> </br>
-    <%= "Nombre de consonnes : " + consonnes% > </br>
+    <%= "Texte analyse : " + chaine%> <br/>
+    <%= "Nombre de voyelles : " + voyelles %> <br/>
+    <%= "Nombre de consonnes : " + consonnes% > </r/>
 </p>
 
 <% } %>
