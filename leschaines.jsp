@@ -36,7 +36,6 @@
 <p>Ecrire un programme pour compter le nombre de lettre e dans votre chaine de charactères</p>
 
 <p>
-    <% String chaine = request.getParameter("chaine"); %>
 
     <% for (int i=0; i<chaine.length(); i++) {%>
     <%}%>
