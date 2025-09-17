@@ -42,7 +42,7 @@
             <%cpt = cpt + 1;%>
         <%}%>
     <%}%>
-    <%= "Il y a " + cpt + " dans la chaine : " + chaine %>
+    <%= "Il y a " + cpt + " 'e' dans la chaine : " + chaine %>
 </p>
 
 <h2>Exercice 2 : Affichage verticale</h2>
@@ -55,6 +55,12 @@ j</br>
 o</br>
 u</br>
 r</p>
+
+<p>
+    <% for (int i=0; i<chaine.length(); i++) {%>
+        <%= chaine.charAt(i);%> </br>
+    <%}%>
+</p>
 
 <h2>Exercice 3 : Retour à la ligne</h2>
 <p>La présence d'un espace provoque un retour à la ligne </br>
