@@ -122,7 +122,7 @@ xueivulp ares revih'l</p>
     <%}%>
     <%= "Texte analyse : " + chaine%> <br/>
     <%= "Nombre de voyelles : " + voyelles %> <br/>
-    <%= "Nombre de consonnes : " + consonnes% > </r/>
+    <%= "Nombre de consonnes : " + consonnes% > <br/>
 </p>
 
 <% } %>
