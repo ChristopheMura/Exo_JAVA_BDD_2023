@@ -85,6 +85,12 @@ pluvieux</p>
 Exemple : L'hiver sera pluvieux</br>
 Lhvrsr lvex</p>
 
+<p>
+    <% for (int i=0; i<chaine.length(); i+=2) {%>
+        <%= chaine.charAt(i)%>
+    <%}%>
+</p>
+
 <h2>Exercice 5 : La phrase en verlant</h2>
 <p>Ecrire le programme afin d'afficher le texte en verlant </br>
 Exemple : L'hiver sera pluvieux</br>
