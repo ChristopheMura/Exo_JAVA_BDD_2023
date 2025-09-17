@@ -61,7 +61,7 @@ Oui C est compris entre A et B</p>
 <h2>Exercice 2 : Pair ou Impair ?</h2>
 <p>Écrivez un programme pour vérifier si un nombre est pair ou impair en utilisant une structure if</p>
 
-<% "} %>
+<% } %>
 <p><a href="index.html">Retour au sommaire</a></p>
 </body>
 </html>
