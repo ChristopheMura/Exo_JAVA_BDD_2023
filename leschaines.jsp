@@ -114,7 +114,7 @@ xueivulp ares revih'l</p>
     <% for (int i=0; i<chaine.length(); i++) {%>
         <%char c = chaine.charAt(i);%>
         <% if(Character.isLetter(c)) {%>
-            <% if (lesVoyelles.indexOf(c) != -1%>
+            <% if (lesVoyelles.indexOf(c) != -1) {%>
             voyelles++;
         <%} else {%>
             consonnes++;
