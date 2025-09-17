@@ -36,9 +36,13 @@
 <p>Ecrire un programme pour compter le nombre de lettre e dans votre chaine de charactères</p>
 
 <p>
-
+    <%int cpt = 0;%>
     <% for (int i=0; i<chaine.length(); i++) {%>
+        <% if (chaine.charAt(i) == 'e') {%>
+            <%cpt = cpt + 1;%>
+        <%}%>
     <%}%>
+    <%= "Il y a " + cpt + " dans la chaine : " + chaine %>
 </p>
 
 <h2>Exercice 2 : Affichage verticale</h2>
