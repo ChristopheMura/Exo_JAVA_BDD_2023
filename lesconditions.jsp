@@ -68,7 +68,7 @@ Oui C est compris entre A et B</p>
     <% String val = request.getParameter("valeur1"); %>
     <% int intVal = Integer.parseInt(val); %>
 
-    <% if (val%2 == 0) {%>
+    <% if (intVal%2 == 0) {%>
         <%= "La valeur entree est pair"%>
     <%} else {%>
         <%= "La valeur entree est impair"%>
