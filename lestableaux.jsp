@@ -94,7 +94,7 @@ Ecrire un programme afin de faire la somme de toutes les valeurs saisie par l'ut
         <%float valCouranteExo7 = Float.parseFloat(tableauDeChiffres[i]);%>
         <% if (Math.abs(valCouranteExo7) < Math.abs(minValExo7)) {%>
             <%minVal = valCouranteExo7;%>
-        <%} else if (Math.abs(valCouranteExo7) == Math.abs(minValExo7) && valCouranteExo7 > minValExo7) {%>
+        <%} else if (Math.abs(valCouranteExo7) == Math.abs(minValExo7) && valCouranteExo7 < minValExo7) {%>
             <%minValExo7 = valCouranteExo7;%>
         <%}%>
     <%}%>
