@@ -52,10 +52,25 @@ Ecrire un programme afin de faire la somme de toutes les valeurs saisie par l'ut
 <h2>Exercice 4 : La valeur maximum</h2>
 <p>Ecrire un programme pour afficher la valeur maximale saisie par l'utilisateur</p>
 <p>
-    <%= "La valeur max saisie par l'utilisateur est : " + Integer.parseInt(tableauDeChiffres[tableauDeChiffres.length - 1]) %> <br/>
+    <%float maxVal = val1;%>
+    <%for (int i=0; i<tableauDeChiffres.length; i++) {%>
+        <% if (maxVal < Integer.parseInt(tableauDeChiffres[i]))%>
+            maxVal = Integer.parseInt(tableauDeChiffres[i]);
+        <%}%>
+    <%}%>
+    <%= "La valeur max saisie par l'utilisateur est : " + maxVal %> <br/>
 </p>
 <h2>Exercice 5 : La valeur minimale</h2>
 <p>Ecrire un programme pour afficher la valeur minimale saisie par l'utilisateur</p>
+<p>
+    <%float minVal = val1;%>
+    <%for (int i=0; i<tableauDeChiffres.length; i++) {%>
+        <% if (minVal > Integer.parseInt(tableauDeChiffres[i]))%>
+            minVal = Integer.parseInt(tableauDeChiffres[i]);
+        <%}%>
+    <%}%>
+    <%= "La valeur min saisie par l'utilisateur est : " + minVal %> <br/>
+</p>
 
 <h2>Exercice 6 : La valeur le plus proche de 0</h2>
 <p>Trouvez la valeur la plus proche de 0 (chiffres positifs ou négatifs)</p>
