@@ -89,16 +89,15 @@ Ecrire un programme afin de faire la somme de toutes les valeurs saisie par l'ut
 <p>Trouvez la valeur la plus proche de 0 (chiffres positifs ou négatifs)</p>
 <p>En cas d'égalité entre un chiffre positif et négatif, affichez le chiffre positif</p>
 <p>
-    <%float minValExo7 = Float.parseFloat(tableauDeChiffres[0]);%>
-    <%for (int i=0; i<tableauDeChiffres.length; i++) {%>
-        <%float valCouranteExo7 = Float.parseFloat(tableauDeChiffres[i]);%>
-        <% if (Math.abs(valCouranteExo7) < Math.abs(minValExo7)) {%>
-            <%minVal = valCouranteExo7;%>
-        <%} else if (Math.abs(valCouranteExo7) == Math.abs(minValExo7) && valCouranteExo7 < minValExo7) {%>
-            <%minValExo7 = valCouranteExo7;%>
-        <%}%>
-    <%}%>
-    <%= "La valeur la plus proche de 0 est : " + minValExo7 %> <br/>
+    <%float minValExo7 = Float.parseFloat(tableauDeChiffres[0]);%> 
+    <%for (int i = 0; i < tableauDeChiffres.length; i++) { %>
+    <%    float valCouranteExo7 = Float.parseFloat(tableauDeChiffres[i]); %>
+    <%    if (Math.abs(valCouranteExo7) < Math.abs(minValExo7)) { %>
+    <%        minValExo7 = valCouranteExo7; %>
+    <%    } else if (Math.abs(valCouranteExo7) == Math.abs(minValExo7) && valCouranteExo7 > minValExo7) { %>
+    <%        minValExo7 = valCouranteExo7; %>
+    <%    } %>
+    <%} %>
 </p>
 
 
