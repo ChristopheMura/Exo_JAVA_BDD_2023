@@ -20,19 +20,6 @@
             background-color: #f2f2f2;
         }
     </style>
-    <script>
-        function toggleTable() {
-            const table = document.getElementById("maTable");
-            const btn = document.getElementById("toggleBtn");
-            if (table.style.display === "none") {
-                table.style.display = "table";
-                btn.textContent = "Cacher le tableau";
-            } else {
-                table.style.display = "none";
-                btn.textContent = "Afficher le tableau";
-            }
-        }
-    </script>
 </head>
 <body bgcolor="white">
 <h1>To do list du futur</h1>
@@ -75,11 +62,8 @@ public class Tache {
     <p><input type="submit" value="Ajouter"></p>
 </form>
 
-<!-- Bouton pour afficher/cacher le tableau -->
-<button id="toggleBtn" type="button" onclick="toggleTable()">Afficher le tableau</button>
-
-<!-- Tableau initialement caché -->
-<table id="maTable" style="display:none">
+<!-- Tableau toujours visible -->
+<table id="maTable">
     <tr>
         <th>Tâches à faire</th>
     </tr>
