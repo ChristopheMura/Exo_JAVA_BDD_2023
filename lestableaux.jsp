@@ -24,7 +24,8 @@
 <h2>Exercice 1 : La carré de la première valeur</h2>
 <p>Ecrire un programme afin d'afficher le carré de la première valeur</p>
 <p>
-    <%= "Le carre de la premiere valeur est : " + Integer.parseInt(tableauDeChiffres[0]) * Integer.parseInt(tableauDeChiffres[0]) %> <br/>
+    <% int val1 = Integer.parseInt(tableauDeChiffres[0]); %>
+    <%= "Le carre de la premiere valeur est : " + val1*val1 %> <br/>
 </p>
 
 <h2>Exercice 2 : La somme des 2 premières valeurs</h2>
