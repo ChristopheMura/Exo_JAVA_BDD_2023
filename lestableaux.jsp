@@ -51,7 +51,9 @@ Ecrire un programme afin de faire la somme de toutes les valeurs saisie par l'ut
 
 <h2>Exercice 4 : La valeur maximum</h2>
 <p>Ecrire un programme pour afficher la valeur maximale saisie par l'utilisateur</p>
-
+<p>
+    <%= "La valeur max saisie par l'utilisateur est : " + Integer.parseInt(tableauDeChiffres[tableauDeChiffres.length - 1]) %> <br/>
+</p>
 <h2>Exercice 5 : La valeur minimale</h2>
 <p>Ecrire un programme pour afficher la valeur minimale saisie par l'utilisateur</p>
 
