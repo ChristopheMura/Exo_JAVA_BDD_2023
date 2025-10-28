@@ -74,10 +74,33 @@ Ecrire un programme afin de faire la somme de toutes les valeurs saisie par l'ut
 
 <h2>Exercice 6 : La valeur le plus proche de 0</h2>
 <p>Trouvez la valeur la plus proche de 0 (chiffres positifs ou négatifs)</p>
+<p>
+    <%float minVal = Float.parseFloat(tableauDeChiffres[0]);%>
+    <%for (int i=0; i<tableauDeChiffres.length; i++) {%>
+        <%float valCourante = Float.parseFloat(tableauDeChiffres[i]);%>
+        <% if (Math.abs(valCourante) < Math.abs(minVal)) {%>
+            <%minVal = valCourante;%>
+        <%}%>
+    <%}%>
+    <%= "La valeur la plus proche de 0 est : " + minVal %> <br/>
+</p>
 
 <h2>Exercice 7 : La valeur le plus proche de 0 (2° version)</h2>
 <p>Trouvez la valeur la plus proche de 0 (chiffres positifs ou négatifs)</p>
 <p>En cas d'égalité entre un chiffre positif et négatif, affichez le chiffre positif</p>
+<p>
+    <%float minVal = Float.parseFloat(tableauDeChiffres[0]);%>
+    <%for (int i=0; i<tableauDeChiffres.length; i++) {%>
+        <%float valCourante = Float.parseFloat(tableauDeChiffres[i]);%>
+        <% if (Math.abs(valCourante) < Math.abs(minVal)) {%>
+            <%minVal = valCourante;%>
+        <%} else if (Math.abs(valCourante) == Math.abs(minVal) && valCourante > minVal) {%>
+            <%minVal = valCourante;%>
+        <%}%>
+    <%}%>
+    <%= "La valeur la plus proche de 0 est : " + minVal %> <br/>
+</p>
+
 
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>
