@@ -42,7 +42,7 @@
 <p>L'utilisateur peut à présent saisir autant de valeurs qu'il le souhaite dans champs de saisie.</br>
 Ecrire un programme afin de faire la somme de toutes les valeurs saisie par l'utilisateur</p>
 <p>
-    <%float sum = 0;%>
+    <%int sum = 0;%>
     <%for (int i=0; i<tableauDeChiffres.length; i++) {%>
         <%sum += Integer.parseInt(tableauDeChiffres[i]);%>
     <%}%>
@@ -52,7 +52,7 @@ Ecrire un programme afin de faire la somme de toutes les valeurs saisie par l'ut
 <h2>Exercice 4 : La valeur maximum</h2>
 <p>Ecrire un programme pour afficher la valeur maximale saisie par l'utilisateur</p>
 <p>
-    <%float maxVal = val1;%>
+    <%int maxVal = val1;%>
     <%for (int i=0; i<tableauDeChiffres.length; i++) {%>
         <% if (maxVal < Integer.parseInt(tableauDeChiffres[i]))%>
             maxVal = Integer.parseInt(tableauDeChiffres[i]);
@@ -63,7 +63,7 @@ Ecrire un programme afin de faire la somme de toutes les valeurs saisie par l'ut
 <h2>Exercice 5 : La valeur minimale</h2>
 <p>Ecrire un programme pour afficher la valeur minimale saisie par l'utilisateur</p>
 <p>
-    <%float minVal = val1;%>
+    <%int minVal = val1;%>
     <%for (int i=0; i<tableauDeChiffres.length; i++) {%>
         <% if (minVal > Integer.parseInt(tableauDeChiffres[i]))%>
             minVal = Integer.parseInt(tableauDeChiffres[i]);
