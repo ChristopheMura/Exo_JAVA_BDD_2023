@@ -20,20 +20,34 @@
     Chiffre 1 : <%= Integer.parseInt(tableauDeChiffres[0]) %></br>
     Chiffre 2 : <%= Integer.parseInt(tableauDeChiffres[1]) %></br>
     Chiffre 3 : <%= Integer.parseInt(tableauDeChiffres[2]) %></p>
+
+    <% int val1 = Integer.parseInt(tableauDeChiffres[0]); %>
+    <% int val2 = Integer.parseInt(tableauDeChiffres[1]); %>
+    <% int val3 = Integer.parseInt(tableauDeChiffres[2]); %>
     
 <h2>Exercice 1 : La carré de la première valeur</h2>
 <p>Ecrire un programme afin d'afficher le carré de la première valeur</p>
 <p>
-    <% int val1 = Integer.parseInt(tableauDeChiffres[0]); %>
     <%= "Le carre de la premiere valeur est : " + val1*val1 %> <br/>
 </p>
 
 <h2>Exercice 2 : La somme des 2 premières valeurs</h2>
 <p>Ecrire un programme afin d'afficher la somme des deux premières valeurs</p>
+<p>
+    <%= "La somme des deux premières valeur est : " + val1+val2 %> <br/>
+</p>
+</p>
 
 <h2>Exercice 3 : La somme de toutes les valeurs</h2>
 <p>L'utilisateur peut à présent saisir autant de valeurs qu'il le souhaite dans champs de saisie.</br>
 Ecrire un programme afin de faire la somme de toutes les valeurs saisie par l'utilisateur</p>
+<p>
+    <%float sum = 0;%>
+    <%for (int i=0; i<tableauDeChiffres.length(); i++) {%>
+        <%sum += Integer.parseInt(tableauDeChiffres[i]);%>
+    <%}%>
+    <%= "La somme de toutes les valeurs est : " + sum %> <br/>
+</p>
 
 <h2>Exercice 4 : La valeur maximum</h2>
 <p>Ecrire un programme pour afficher la valeur maximale saisie par l'utilisateur</p>
