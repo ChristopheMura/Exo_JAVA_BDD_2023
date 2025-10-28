@@ -54,7 +54,7 @@ Ecrire un programme afin de faire la somme de toutes les valeurs saisie par l'ut
 <p>
     <%float maxVal = val1;%>
     <%for (int i=0; i<tableauDeChiffres.length; i++) {%>
-        <% if (maxVal < Integer.parseInt(tableauDeChiffres[i]))%>
+        <% if (maxVal < Integer.parseInt(tableauDeChiffres[i])) {%>
             <%maxVal = Integer.parseInt(tableauDeChiffres[i]);%>
         <%}%>
     <%}%>
@@ -65,7 +65,7 @@ Ecrire un programme afin de faire la somme de toutes les valeurs saisie par l'ut
 <p>
     <%float minVal = val1;%>
     <%for (int i=0; i<tableauDeChiffres.length; i++) {%>
-        <% if (minVal > Integer.parseInt(tableauDeChiffres[i]))%>
+        <% if (minVal > Integer.parseInt(tableauDeChiffres[i])) {%>
             <%minVal = Integer.parseInt(tableauDeChiffres[i]);%>
         <%}%>
     <%}%>
