@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
     <style>
         table {
             border-collapse: collapse;
-            width: 80%;
+            width: 50%;
             margin-top: 20px;
         }
         th, td {
@@ -34,41 +35,62 @@
     </script>
 </head>
 <body bgcolor="white">
-    <h1>To do list du futur</h1>
+<h1>To do list du futur</h1>
 
-    <!-- Formulaire pour ajouter une tâche -->
-    <form action="monTP.jsp" method="post">
-        <p>Veuillez entrer une tâche à effectuer : 
-            <input type="text" id="inputValeur" name="tache">
-        </p>
-        <p><input type="submit" value="Ajouter"></p>
-    </form>
+<%! 
+// Classe simple pour représenter une tâche
+public class Tache {
+    private String nom;
 
-    <!-- Bouton pour afficher/cacher le tableau -->
-    <button id="toggleBtn" type="button" onclick="toggleTable()">Afficher le tableau</button>
+    public Tache(String nom) {
+        this.nom = nom;
+    }
 
-    <!-- Tableau initialement caché -->
-    <table id="maTable" style="display:none">
-        <tr>
-            <th>Colonne 1</th>
-            <th>Colonne 2</th>
-            <th>Colonne 3</th>
-            <th>Colonne 4</th>
-            <th>Colonne 5</th>
-        </tr>
-        <%
-            // Exemple d'utilisation côté serveur : afficher des lignes dynamiquement
-            String tache = request.getParameter("tache");
-            if (tache != null && !tache.isEmpty()) {
-        %>
-        <tr>
-            <td><%= tache %></td>
-            <td>Valeur 2</td>
-            <td>Valeur 3</td>
-            <td>Valeur 4</td>
-            <td>Valeur 5</td>
-        </tr>
-        <% } %>
-    </table>
+    public String getNom() {
+        return nom;
+    }
+}
+%>
+
+<%
+    // Récupérer la liste des tâches depuis la session
+    List<Tache> listeTaches = (List<Tache>) session.getAttribute("listeTaches");
+    if (listeTaches == null) {
+        listeTaches = new ArrayList<>();
+        session.setAttribute("listeTaches", listeTaches);
+    }
+
+    // Récupérer la nouvelle tâche depuis le formulaire
+    String nouvelleTache = request.getParameter("tache");
+    if (nouvelleTache != null && !nouvelleTache.trim().isEmpty()) {
+        listeTaches.add(new Tache(nouvelleTache.trim()));
+    }
+%>
+
+<!-- Formulaire pour ajouter une tâche -->
+<form action="monTP.jsp" method="post">
+    <p>Veuillez entrer une tâche à effectuer : 
+        <input type="text" id="inputValeur" name="tache" required>
+    </p>
+    <p><input type="submit" value="Ajouter"></p>
+</form>
+
+<!-- Bouton pour afficher/cacher le tableau -->
+<button id="toggleBtn" type="button" onclick="toggleTable()">Afficher le tableau</button>
+
+<!-- Tableau initialement caché -->
+<table id="maTable" style="display:none">
+    <tr>
+        <th>Tâches à faire</th>
+    </tr>
+    <%
+        for(Tache t : listeTaches){
+    %>
+    <tr>
+        <td><%= t.getNom() %></td>
+    </tr>
+    <% } %>
+</table>
+
 </body>
 </html>
