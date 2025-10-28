@@ -8,7 +8,7 @@
     <style>
         table {
             border-collapse: collapse;
-            width: 50%;
+            width: 70%;
             margin-top: 20px;
         }
         th, td {
@@ -19,22 +19,31 @@
         th {
             background-color: #f2f2f2;
         }
+        input[type=text] {
+            width: 300px;
+        }
     </style>
 </head>
 <body bgcolor="white">
 <h1>To do list du futur</h1>
 
 <%! 
-// Classe simple pour représenter une tâche
+// Classe simple pour représenter une tâche avec titre et description
 public class Tache {
-    private String nom;
+    private String titre;
+    private String description;
 
-    public Tache(String nom) {
-        this.nom = nom;
+    public Tache(String titre, String description) {
+        this.titre = titre;
+        this.description = description;
     }
 
-    public String getNom() {
-        return nom;
+    public String getTitre() {
+        return titre;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }
 %>
@@ -47,31 +56,39 @@ public class Tache {
         session.setAttribute("listeTaches", listeTaches);
     }
 
-    // Récupérer la nouvelle tâche depuis le formulaire
-    String nouvelleTache = request.getParameter("tache");
-    if (nouvelleTache != null && !nouvelleTache.trim().isEmpty()) {
-        listeTaches.add(new Tache(nouvelleTache.trim()));
+    // Récupérer les données du formulaire
+    String titre = request.getParameter("titre");
+    String description = request.getParameter("description");
+    if (titre != null && !titre.trim().isEmpty() && description != null) {
+        listeTaches.add(new Tache(titre.trim(), description.trim()));
     }
 %>
 
 <!-- Formulaire pour ajouter une tâche -->
 <form action="monTP.jsp" method="post">
-    <p>Veuillez entrer une tâche à effectuer : 
-        <input type="text" id="inputValeur" name="tache" required>
+    <p>
+        Titre de la tâche : 
+        <input type="text" name="titre" required>
+    </p>
+    <p>
+        Description de la tâche : 
+        <input type="text" name="description">
     </p>
     <p><input type="submit" value="Ajouter"></p>
 </form>
 
-<!-- Tableau toujours visible -->
+<!-- Tableau affichant toutes les tâches -->
 <table id="maTable">
     <tr>
-        <th>Tâches à faire</th>
+        <th>Titre</th>
+        <th>Description</th>
     </tr>
     <%
         for(Tache t : listeTaches){
     %>
     <tr>
-        <td><%= t.getNom() %></td>
+        <td><%= t.getTitre() %></td>
+        <td><%= t.getDescription() %></td>
     </tr>
     <% } %>
 </table>
