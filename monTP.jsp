@@ -37,7 +37,7 @@
     <h1>To do list du futur</h1>
 
     <!-- Formulaire pour ajouter une tâche -->
-    <form action="maPage.jsp" method="post">
+    <form action="monTP.jsp" method="post">
         <p>Veuillez entrer une tâche à effectuer : 
             <input type="text" id="inputValeur" name="tache">
         </p>
