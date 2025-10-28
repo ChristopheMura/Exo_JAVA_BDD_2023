@@ -98,6 +98,7 @@ Ecrire un programme afin de faire la somme de toutes les valeurs saisie par l'ut
     <%        minValExo7 = valCouranteExo7; %>
     <%    } %>
     <%} %>
+    <%= "La valeur la plus proche de 0 est : " + minValExo7 %> <br/>
 </p>
 
 
