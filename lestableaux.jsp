@@ -43,7 +43,7 @@
 Ecrire un programme afin de faire la somme de toutes les valeurs saisie par l'utilisateur</p>
 <p>
     <%float sum = 0;%>
-    <%for (int i=0; i<chaine.length(); i++) {%>
+    <%for (int i=0; i<tableauDeChiffres.length; i++) {%>
         <%sum += Integer.parseInt(tableauDeChiffres[i]);%>
     <%}%>
     <%= "La somme de toutes les valeurs est : " + sum %> <br/>
