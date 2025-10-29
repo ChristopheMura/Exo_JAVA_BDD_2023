@@ -220,14 +220,20 @@ public class Tache
 </div>
 
 <!-- Formulaire d'ajouter d'une tâche -->
-<div class="form-box">
-    <form action="monTP.jsp" method="post">
+<form action="monTP.jsp" method="post">
+    <p>
         <input type="hidden" name="action" value="ajouter">
-        <input type="text" name="titre" placeholder="Titre de la tâche..." required>
-        <textarea name="description" placeholder="Description (optionnelle)"></textarea>
-        <input type="submit" value="Ajouter">
-    </form>
-</div>
+    </p>
+    <p>
+        Titre de la tâche : 
+        <input type="text" name="titre" required>
+    </p>
+    <p>
+        Description de la tâche : 
+        <input type="text" name="description">
+    </p>
+    <p><input type="submit" value="Ajouter"></p>
+</form>
 
 <!-- Tableau affichant toutes les tâches -->
 <table id="maTable">
