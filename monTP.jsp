@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Mon TP made by Christophe MURA</title>
+    <title>TodoList Pro - by Christophe MURA</title>
     <style>
         table {
             border-collapse: collapse;
@@ -29,21 +30,41 @@
 
 <%! 
 // Classe simple pour représenter une tâche avec titre et description
-public class Tache {
+public class Tache
+{
+    private String id;
     private String titre;
     private String description;
+    private String priorite;
+    private boolean complete;
+    private Date dateCreation;
 
-    public Tache(String titre, String description) {
+    public Tache(String titre, String description, String priorite)
+    {
+        this.id = UUID.randomUUID().toString();
         this.titre = titre;
         this.description = description;
+        this.priorite = priorite;
+        this.complete = false;
+        this.dateCreation = new Date();
     }
 
-    public String getTitre() {
-        return titre;
+    public String getId() { return id; }
+    public String getTitre() { return titre; }
+    public String getDescription() { return description; }
+    public String getPriorite() { return priorite; }
+    public boolean isComplete() { return complete; }
+    public Date getDateCreation() { return dateCreation; }
+
+    public void setComplete(boolean pComplete)
+    {
+        this.complete = pComplete;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDateCreationFormate()
+    {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyy HH:mm");
+        return simpleDateFormat.format(dateCreation);
     }
 }
 %>
@@ -51,8 +72,11 @@ public class Tache {
 <%
     // Récupérer la liste des tâches depuis la session
     List<Tache> listeTaches = (List<Tache>) session.getAttribute("listeTaches");
-    if (listeTaches == null) {
-        listeTaches = new ArrayList<>();
+    // Est ce que c'est la premiere fois que je visite le site web ?
+    if (listeTaches == null)
+    {
+        listeTaches = new ArrayList<>(); // On crée une nouvelle liste vide
+        // On stocke cette liste dans la session pour la retrouver plus tard
         session.setAttribute("listeTaches", listeTaches);
     }
 
