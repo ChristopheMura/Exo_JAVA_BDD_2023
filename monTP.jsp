@@ -190,6 +190,7 @@ public class Tache
     }
     else if ("toggle".equals(action))
     {
+        String id = request.getParameter("id");
         for (Tache t : listeTaches)
         {
             if (t.getId().equals(id))
