@@ -134,7 +134,7 @@ public class Tache
     private String description;
     private boolean complete;
 
-    public Tache(String titre, String description, String priorite)
+    public Tache(String titre, String description)
     {
         this.id = UUID.randomUUID().toString();
         this.titre = titre;
