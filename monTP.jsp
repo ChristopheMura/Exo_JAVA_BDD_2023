@@ -80,6 +80,30 @@ public class Tache
         session.setAttribute("listeTaches", listeTaches);
     }
 
+    // Gestion des actions
+    String action = request.getParameter("action");
+
+    // Ajouter une tâche
+    if ("ajouter".equals(action))
+    {
+        String titre = request.getParameter("titre");
+        String description = request.getParameter("description");
+        String priorite = request.getParameter("priorite");
+
+        if (titre != null && !titre.trim().isEmpty())
+        {
+            if (description == null)
+            {
+                description = "";
+            }
+            if (priorite == null)
+            {
+                priorite = "moyenne";
+            }
+            listeTaches.add(new Tache(titre.trim(), description.trim(), priorite));
+        }
+    }
+
     // Récupérer les données du formulaire
     String titre = request.getParameter("titre");
     String description = request.getParameter("description");
