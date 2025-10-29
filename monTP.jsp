@@ -5,7 +5,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Mon TP made by Christophe MURA</title>
-    
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type=text] {
+            width: 300px;
+        }
+    </style>
 </head>
 <body bgcolor="white">
 <h1>To do list du futur</h1>
