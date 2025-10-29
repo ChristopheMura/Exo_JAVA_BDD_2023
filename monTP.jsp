@@ -173,7 +173,6 @@ public class Tache
     {
         String titre = request.getParameter("titre");
         String description = request.getParameter("description");
-        String priorite = request.getParameter("priorite");
 
         if (titre != null && !titre.trim().isEmpty())
         {
@@ -188,6 +187,9 @@ public class Tache
     {
         String id = request.getParameter("id");
         listeTaches.removeIf(t->t.getId().equals(id));
+    }
+    else if ("toggle".equals(action))
+    {
         for (Tache t : listeTaches)
         {
             if (t.getId().equals(id))
