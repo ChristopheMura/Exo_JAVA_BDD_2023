@@ -246,21 +246,42 @@ public class Tache
     </div>
 <%}%>
 
-<!-- Tableau affichant toutes les tâches -->
-<table id="maTable">
-    <tr>
-        <th>Titre</th>
-        <th>Description</th>
-    </tr>
-    <%
-        for(Tache t : listeTaches){
-    %>
-    <tr>
-        <td><%= t.getTitre() %></td>
-        <td><%= t.getDescription() %></td>
-    </tr>
-    <% } %>
-</table>
+<!-- Liste des tâches -->
+<% if (listeTaches.isEmpty()) { %>
+    <div class="empty-message">
+        <p>Aucune tâche pour le moment</p>
+        <p>Ajoutez-en une ci-dessus ! 👆</p>
+    </div>
+<% } else { 
+    for (Tache t : listeTaches) { 
+%>
+    <div class="task <%= t.isComplete() ? "completed" : "" %>">
+        <div class="task-content">
+            <div class="task-title">
+                <%= t.isComplete() ? "✓ " : "" %><%= t.getTitre() %>
+            </div>
+            <% if (!t.getDescription().isEmpty()) { %>
+                <div class="task-description"><%= t.getDescription() %></div>
+            <% } %>
+        </div>
+        <div class="task-actions">
+            <form action="monTP.jsp" method="post" style="display: inline;">
+                <input type="hidden" name="action" value="toggle">
+                <input type="hidden" name="id" value="<%= t.getId() %>">
+                <button type="submit" class="btn-small">
+                    <%= t.isComplete() ? "↩️" : "✓" %>
+                </button>
+            </form>
+            <form action="monTP.jsp" method="post" style="display: inline;" 
+                  onsubmit="return confirm('Supprimer cette tâche ?');">
+                <input type="hidden" name="action" value="supprimer">
+                <input type="hidden" name="id" value="<%= t.getId() %>">
+                <button type="submit" class="btn-small btn-delete">🗑️</button>
+            </form>
+        </div>
+    </div>
+<% } 
+} %>
 
 </body>
 </html>
