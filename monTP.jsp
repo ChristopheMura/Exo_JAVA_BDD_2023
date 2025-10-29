@@ -235,6 +235,17 @@ public class Tache
     <p><input type="submit" value="Ajouter"></p>
 </form>
 
+<!--- Bouton tout supprimer-->
+<%if (total > 0) {%>
+    <div style="text-align: right; margin-bottom: 10px;">
+        <form action="monTP.jsp" method="post" style="display: inline;"
+              onsubmit="return confirm('Supprimer toutes les tâches ?');">
+              <input type="hidden" name="action" value="toutSupprimer">
+              <button type="submit" class="btn-small btn-delete">🗑️ Tout supprimer</button>
+        </form>
+    </div>
+<%}%>
+
 <!-- Tableau affichant toutes les tâches -->
 <table id="maTable">
     <tr>
