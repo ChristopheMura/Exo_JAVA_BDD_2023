@@ -230,7 +230,7 @@ public class Tache
     </p>
     <p>
         Description de la tâche : 
-        <input type="text" name="description">
+        <textarea type="text" name="description"></textarea>
     </p>
     <p><input type="submit" value="Ajouter"></p>
 </form>
