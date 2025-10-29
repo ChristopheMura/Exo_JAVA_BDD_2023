@@ -214,18 +214,20 @@ public class Tache
     }
 %>
 <h1>📋 Ma TodoList</h1>
-<!-- Formulaire pour ajouter une tâche -->
-<form action="monTP.jsp" method="post">
-    <p>
-        Titre de la tâche : 
-        <input type="text" name="titre" required>
-    </p>
-    <p>
-        Description de la tâche : 
-        <input type="text" name="description">
-    </p>
-    <p><input type="submit" value="Ajouter"></p>
-</form>
+
+<div class="stats">
+    <%= total %> tâche(s) - <%= completes %> terminée(s) - <%= total - completes %> en cours
+</div>
+
+<!-- Formulaire d'ajouter d'une tâche -->
+<div class="form-box">
+    <form action="monTP.jsp" method="post">
+        <input type="hidden" name="action" value="ajouter">
+        <input type="text" name="titre" placeholder="Titre de la tâche..." required>
+        <textarea name="description" placeholder="Description (optionnelle)"></textarea>
+        <input type="submit" value="Ajouter">
+    </form>
+</div>
 
 <!-- Tableau affichant toutes les tâches -->
 <table id="maTable">
