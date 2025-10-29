@@ -7,26 +7,123 @@
     <meta charset="UTF-8">
     <title>TodoList Pro - by Christophe MURA</title>
     <style>
-        table {
-            border-collapse: collapse;
-            width: 70%;
-            margin-top: 20px;
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
         }
-        th, td {
-            border: 1px solid #333;
-            padding: 8px;
+
+        h1 {
+            color: #333;
             text-align: center;
         }
-        th {
-            background-color: #f2f2f2;
+
+        .form-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        input[type=text] {
-            width: 300px;
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
+
+        textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
+
+        button, input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    
+        button:hover, input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        
+        .task {
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .task.completed {
+            background-color: #f0f0f0;
+            opacity: 0.7;
+        }
+
+        .task-content {
+            flex: 1;
+        }
+
+        .task-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    
+        .task.completed .task-title {
+            text-decoration: line-through;
+            color: #999;
+        }
+        
+        .task-description {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .task-actions {
+            display: flex;
+            gap: 5px;
+        }
+    
+        .btn-small {
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+        
+        .btn-delete {
+            background-color: #f44336;
+        }
+        
+        .btn-delete:hover {
+            background-color: #da190b;
+        }
+        
+        .stats {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .empty-message {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
     </style>
 </head>
-<body bgcolor="white">
-<h1>To do list du futur</h1>
+<body>
 
 <%! 
 // Classe simple pour représenter une tâche avec titre et description
@@ -35,36 +132,24 @@ public class Tache
     private String id;
     private String titre;
     private String description;
-    private String priorite;
     private boolean complete;
-    private Date dateCreation;
 
     public Tache(String titre, String description, String priorite)
     {
         this.id = UUID.randomUUID().toString();
         this.titre = titre;
         this.description = description;
-        this.priorite = priorite;
         this.complete = false;
-        this.dateCreation = new Date();
     }
 
     public String getId() { return id; }
     public String getTitre() { return titre; }
     public String getDescription() { return description; }
-    public String getPriorite() { return priorite; }
     public boolean isComplete() { return complete; }
-    public Date getDateCreation() { return dateCreation; }
 
     public void setComplete(boolean pComplete)
     {
         this.complete = pComplete;
-    }
-
-    public String getDateCreationFormate()
-    {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyy HH:mm");
-        return simpleDateFormat.format(dateCreation);
     }
 }
 %>
@@ -96,22 +181,39 @@ public class Tache
             {
                 description = "";
             }
-            if (priorite == null)
-            {
-                priorite = "moyenne";
-            }
-            listeTaches.add(new Tache(titre.trim(), description.trim(), priorite));
+            listeTaches.add(new Tache(titre.trim(), description.trim()));
         }
     }
+    else if ("supprimer".equals(action))
+    {
+        String id = request.getParameter("id");
+        listeTaches.removeIf(t->t.getId().equals(id));
+        for (Tache t : listeTaches)
+        {
+            if (t.getId().equals(id))
+            {
+                t.setComplete(!t.isComplete());
+                break;
+            }
+        }
+    }
+    else if ("toutSupprimer".equals(action))
+    {
+        listeTaches.clear();
+    }
 
-    // Récupérer les données du formulaire
-    String titre = request.getParameter("titre");
-    String description = request.getParameter("description");
-    if (titre != null && !titre.trim().isEmpty() && description != null) {
-        listeTaches.add(new Tache(titre.trim(), description.trim()));
+    // Statistiques
+    int total = listeTaches.size();
+    int completes = 0;
+    for (Tache t : listeTaches)
+    {
+        if (t.isComplete())
+        {
+            completes++;
+        }
     }
 %>
-
+<h1>📋 Ma TodoList</h1>
 <!-- Formulaire pour ajouter une tâche -->
 <form action="monTP.jsp" method="post">
     <p>
