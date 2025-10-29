@@ -250,7 +250,6 @@ public class Tache
 <% if (listeTaches.isEmpty()) { %>
     <div class="empty-message">
         <p>Aucune tâche pour le moment</p>
-        <p>Ajoutez-en une ci-dessus ! 👆</p>
     </div>
 <% } else { 
     for (Tache t : listeTaches) { 
