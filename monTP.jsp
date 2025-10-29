@@ -24,7 +24,7 @@
             text-align: center;
         }
 
-        /* Boite du formulaire */
+        /* Boite du formulaire eee*/
         .form-box {
             background: white;
             padding: 20px;
