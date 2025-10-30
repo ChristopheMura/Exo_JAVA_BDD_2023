@@ -189,7 +189,7 @@ public class Tache
 <%
     // ===== 1. GESTION DE LA SESSION =====
     // Récupérer la liste des tâches depuis la session
-    List<Tache> listeTaches = (List<Tache>) session.getAttribute("listeTaches");
+    List<Tache> listeTaches; //= (List<Tache>) session.getAttribute("listeTaches");
     // Est ce que c'est la premiere fois que je visite le site web ?
     if (listeTaches == null)
     {
