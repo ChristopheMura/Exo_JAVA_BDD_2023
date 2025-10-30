@@ -189,6 +189,8 @@ public class Tache
 <%
     // ===== 1. GESTION DE LA SESSION =====
     // Récupérer la liste des tâches depuis la session
+    // session permet de dissocier les sessions utilisateur créée
+    // application permet d'associer toutes les sessions ensemble
     List<Tache> listeTaches = (List<Tache>) application.getAttribute("listeTaches");
     // Est ce que c'est la premiere fois que je visite le site web ?
     if (listeTaches == null)
@@ -282,7 +284,7 @@ public class Tache
     <%= total %> tâche(s) - <%= completes %> terminée(s) - <%= total - completes %> en cours
 </div>
 
-<!-- ===== FORMULAIRE D'AJOUT D'UNE TÂCHE ===== -->
+<!--- Zone d'ajout d'une tâche --->
 <form action="#" method="post">
     <p>
         <input type="hidden" name="action" value="ajouter">
@@ -299,8 +301,8 @@ public class Tache
     <p><input type="submit" value="Ajouter"></p>
 </form>
 
-<!-- ===== BOUTON TOUT SUPPRIMER ===== -->
- <!-- Affiché seulement s'il y a au moins une tâche -->
+
+ <!-- Afficher seulement s'il y a au moins une tâche -->
 <%if (total > 0) {%>
     <div style="text-align: right; margin-bottom: 10px;">
         <form action="#" method="post" style="display: inline;"
@@ -311,7 +313,7 @@ public class Tache
     </div>
 <%}%>
 
-<!-- ===== AFFICHAGE DE LA LISTE DES TÂCHES ===== -->
+
 <!-- Liste des tâches -->
 <% if (listeTaches.isEmpty()) { %>
     <div class="empty-message">
@@ -322,7 +324,7 @@ public class Tache
 <% } else { 
     for (Tache t : listeTaches) { 
 %>
-    <!-- ===== CARTE D'UNE TÂCHE ===== -->
+    <!--- ===== Affichage de la carte d'une tâche  --->
     <!-- Classe "completed" ajoutée si la tâche est complétée -->
     <div class="task <%= t.isComplete() ? "completed" : "" %>">
         <!-- Contenu de la tâche (titre et description) -->
@@ -338,7 +340,7 @@ public class Tache
         </div>
         <!-- Boutons d'action -->
         <div class="task-actions">
-            <!-- ===== BOUTON TERMINER / RÉACTIVER ===== -->
+            <!-- Gestion bouton terminer ou réactiver la tâche -->
             <form action="#" method="post" style="display: inline;">
                 <input type="hidden" name="action" value="toggle">
                 <input type="hidden" name="id" value="<%= t.getId() %>">
@@ -346,7 +348,7 @@ public class Tache
                     <%= t.isComplete() ? "↩️" : "✓" %>
                 </button>
             </form>
-            <!-- ===== BOUTON SUPPRIMER ===== -->
+            <!-- Bouton supprimer la tâche -->
             <form action="#" method="post" style="display: inline;" 
                   onsubmit="return confirm('Supprimer cette tâche ?');">
                 <input type="hidden" name="action" value="supprimer">
