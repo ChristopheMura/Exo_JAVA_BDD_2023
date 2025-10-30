@@ -189,13 +189,13 @@ public class Tache
 <%
     // ===== 1. GESTION DE LA SESSION =====
     // Récupérer la liste des tâches depuis la session
-    List<Tache> listeTaches; //= (List<Tache>) session.getAttribute("listeTaches");
+    List<Tache> listeTaches; /*= (List<Tache>) session.getAttribute("listeTaches");*/
     // Est ce que c'est la premiere fois que je visite le site web ?
     if (listeTaches == null)
     {
         listeTaches = new ArrayList<>(); // On crée une nouvelle liste vide
         // On stocke cette liste dans la session pour la retrouver plus tard
-        session.setAttribute("listeTaches", listeTaches);
+        //session.setAttribute("listeTaches", listeTaches);
     }
 
     // ===== 2. RÉCUPÉRATION DE L'ACTION =====
@@ -212,7 +212,7 @@ public class Tache
         // Récupère la description depuis le formulaire
         String description = request.getParameter("description");
 
-        // Vérifie que le titre existe et n'est pas vide
+        // Vérifie que le titre existe et n'est pas vide et qu'il n'y a pas d'espace
         if (titre != null && !titre.trim().isEmpty())
         {
             // Si description est null, on met une chaîne vide
