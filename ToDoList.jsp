@@ -156,7 +156,7 @@ public class Tache
     private String id;                  // Identifiant unique de la tâche
     private String titre;               // Titre de la tâche
     private String description;         // Description détaillée
-    private boolean complete;           // Etat : true = terminé, false = en cour
+    private boolean complete;           // Etat : true = terminé, false = en cours
 
     // ===== CONSTRUCTEUR =====
     public Tache(String titre, String description)
