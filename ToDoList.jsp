@@ -283,7 +283,7 @@ public class Tache
 </div>
 
 <!-- ===== FORMULAIRE D'AJOUT D'UNE TÂCHE ===== -->
-<form action="ToDoList.jsp" method="post">
+<form action="#" method="post">
     <p>
         <input type="hidden" name="action" value="ajouter">
     </p>
@@ -303,7 +303,7 @@ public class Tache
  <!-- Affiché seulement s'il y a au moins une tâche -->
 <%if (total > 0) {%>
     <div style="text-align: right; margin-bottom: 10px;">
-        <form action="ToDoList.jsp" method="post" style="display: inline;"
+        <form action="#" method="post" style="display: inline;"
               onsubmit="return confirm('Supprimer toutes les tâches ?');">
               <input type="hidden" name="action" value="toutSupprimer">
               <button type="submit" class="btn-small btn-delete">🗑️ Tout supprimer</button>
@@ -339,7 +339,7 @@ public class Tache
         <!-- Boutons d'action -->
         <div class="task-actions">
             <!-- ===== BOUTON TERMINER / RÉACTIVER ===== -->
-            <form action="ToDoList.jsp" method="post" style="display: inline;">
+            <form action="#" method="post" style="display: inline;">
                 <input type="hidden" name="action" value="toggle">
                 <input type="hidden" name="id" value="<%= t.getId() %>">
                 <button type="submit" class="btn-small">
@@ -347,7 +347,7 @@ public class Tache
                 </button>
             </form>
             <!-- ===== BOUTON SUPPRIMER ===== -->
-            <form action="ToDoList.jsp" method="post" style="display: inline;" 
+            <form action="#" method="post" style="display: inline;" 
                   onsubmit="return confirm('Supprimer cette tâche ?');">
                 <input type="hidden" name="action" value="supprimer">
                 <input type="hidden" name="id" value="<%= t.getId() %>">
